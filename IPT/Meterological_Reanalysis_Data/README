@@ -1,0 +1,9 @@
+These scripts regrid meteorological reanalysis datasets (e.g., MERRA2) to the model
+resolution (horizontal and vertical) for use in the "physics-side nudging" scheme in CESM2.
+Further details are provided on the MUSICA wiki page
+(https://wiki.ucar.edu/display/MUSICA/Regridding+meteorological+data).
+
+The processing scripts are slightly different for the two available dycores, so they are 
+contained in separate directories in the IPT repository. In each, there is a README that 
+provides general guidance for setting the script variables for a desired reanalysis product.
+
