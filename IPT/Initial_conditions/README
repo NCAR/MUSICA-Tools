@@ -1,0 +1,12 @@
+Script to regrid initial conditions between SE and SE regional refined resolutions
+
+```
+ncl regrid_all_spectral_data.ncl
+```
+
+Atmospheric initial condition for regional refined grids have to often be created from a spun up lower resolution model simulations and then need to be regridded. We provide an ncl script that allows to regrid from the standard spectral element 1 degree resolution to the new grid.
+
+To run with CESM, the file has to be then converted to a cdf5 format
+```
+nccopy -k cdf5 oldfile newfile
+```

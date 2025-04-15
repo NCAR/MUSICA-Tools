@@ -1,0 +1,16 @@
+#!/bin/csh
+#
+# LSF batch script to run an MPI application
+#
+#SBATCH -A P19010000           # project code
+#SBATCH -t 24:00:00               # wall-clock time (hrs:mins)
+#SBATCH -n 16                   # number of tasks in job         
+#SBATCH --ntasks-per-node=4     # run 16 MPI tasks per node
+#SBATCH -J regrid_cam4.2_R1.1  # job name
+#SBATCH -o myjob.%J.out        # output file name in which %J is replaced by the job ID
+#SBATCH -p dav                 # queue
+
+#run the executable
+#source /glade/u/apps/opt/slurm_init/init.csh
+#module load ncl/6.4.0
+ncl Regrid_fv2se_cams_4.2_R2.1_anthro.ncl

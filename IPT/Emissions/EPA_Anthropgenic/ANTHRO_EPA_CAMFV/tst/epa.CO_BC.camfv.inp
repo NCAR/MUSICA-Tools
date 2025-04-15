@@ -1,0 +1,33 @@
+&CONTROL
+ mdlType    = 'CAMFV'
+ mdlFilenm  = 'camfv_0.47x0.63.nc'
+ model_dir  = '/home/stacy/ANTHRO_EPA_CAMFV/tst'
+ anthro_dir = '/data14a/pfister/EPA_2014/cmaq_cb6'
+ src_lon_dim_name = 'COL'
+ src_lat_dim_name = 'ROW'
+
+ domains = 1
+
+ sec_file_prefix = 'emis_mole_' 
+ sec_file_suffix = '_12US2_nobeis_2014fd_nata_cb6_14j_nohap.nc4'
+
+ stk_file_prefix = 'inln_mole_' 
+ stk_file_suffix = '_12US2_cmaq_cb6_2014fd_nata_cb6_14j_nohap.nc4'
+ stk_grp_file_suffix = '_12US2_2014fd_nata_cb6_14j_nohap.nc4'
+
+ currDateStr     = '20140601'
+
+ src_names(1:6) = 'all(1):epa-sector','cmv_c3(1):epa-stack','othpt(1):epa-stack','ptegu(1):epa-stack','ptnonipm(1):epa-stack','pt_oilgas(1):epa-stack'
+ 
+ sub_categories(1:2)   = 'CO','PEC'
+
+ cat_var_prefix  = ' '
+ serial_output   = .true.
+ start_output_time = '2014-06-01_00:00:00'
+ stop_output_time  = '2014-06-08_00:00:00'
+ data_yrs_offset = 0
+ emissions_zdim_stag = 10
+
+ emis_map(1) = 'CO->all(CO)+cmv_c3(CO)+othpt(CO)+ptegu(CO)+ptnonipm(CO)+pt_oilgas(CO)'
+ emis_map(2) = 'BC(A)->all(.0833333*PEC)+cmv_c3(.0833333*PEC)+othpt(.0833333*PEC)+ptegu(.0833333*PEC)+ptnonipm(.0833333*PEC)+pt_oilgas(.0833333*PEC)'
+/
