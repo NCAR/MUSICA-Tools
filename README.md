@@ -4,7 +4,7 @@ A place to store processing code related to atmospheric chemistry modeling at NS
 
 | Folder | Use |
 |-------------------|-------------------|
-| CodeSets   | Sets of code in a mixture of languages, used for particular purposes: Currently includes: IPT |
+| CodeSets   | Sets of code in a mixture of languages, used for particular purposes: Currently includes: IPT: input processing; TPO: output processing |
 | NCL    | Collection of scripts and processing written in NCAR COMmand Language (NCL). Note this language is no longer maintained and users are encouraged to move towards Python.|
 | Python | Collection of scripts and Jupyter Notebooks examples written in Python. Some of these are used as examples on [https://ncar.github.io/MUSICA-Tools/](https://ncar.github.io/MUSICA-Tools/)|
 | docs | Old files of GitHub hosted website. |
