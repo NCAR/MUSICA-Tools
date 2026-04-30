@@ -1,0 +1,22 @@
+Unstructured (SE) grid IC files can be regridded horizontally and vertically with ncremap, 
+which is part of NCO: https://nco.sourceforge.net/nco.html#ncremap
+
+To regrid only vertically:
+ncremap --vrt_out=/glade/campaign/acom/MUSICA/grids/templates/template_L58.nc in_file_L93.nc out_file_L58.nc
+
+
+To regrid from ne30 to a regionally refined grid, use something like:
+
+srcgrid=ne30pg3
+dstgrid=GEMSne30x8
+
+srcgridfile=/glade/campaign/acom/MUSICA/grids/ne30np4/ne30np4_091226_pentagons.nc
+dstgridfile=/glade/campaign/acom/MUSICA/grids/GEMSne30x8/GEMS01_ne30x8_np4_SCRIP.nc
+
+infile=/glade/campaign/acom/acom-weather/emmons/ic_files/f.e3b08.FHISTC_LTt1s.camsm11_finn26.2023.merra2.ne30.01.cam.i.2023-12-01-00000.nc
+outfile=/glade/campaign/acom/acom-weather/emmons/GEMS01_ne30x8/ic/ic_f.e3b08.FHISTC_LTt1s.camsm11_finn26.GEMSne30x8_2023-12-01_c${datestr}.nc
+
+wghtfile=map_${srcgrid}_to_${dstgrid}_blin_c${datestr}.nc
+ESMF_RegridWeightGen --ignore_unmapped -m bilinear -w ${wghtfile} -s ${srcgridfile} -d ${dstgridfile}
+
+ncremap -m ${wghtfile} -i ${infile} -o ${outfile}
